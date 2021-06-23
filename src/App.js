@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 
+import Header from './common/header/index'
+
 class App extends Component {
   render() {
     return (
-      <div className="hello">Hello World</div>
+      <>
+        <Header />
+        <div>Hello World</div>
+      </>
     )
   }
 }
