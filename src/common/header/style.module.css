@@ -222,7 +222,19 @@ li {
     font-size: 17px;
 }
 
+.navbar_nav a {
+    font-size: 17px;
+}
+
 .navbar_nav>.active>a:hover {
     color: #ea6f5a;
     background: none;
+}
+
+.navbar_nav .menu_icon {
+    display: inherit;
+    float: left;
+    font-size: 20px;
+    margin-right: 5px;
+    line-height: 28px;
 }

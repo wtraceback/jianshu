@@ -12,7 +12,7 @@ class Header extends Component {
               <img className={styles.logo_img} src={logoImg} alt="Nav logo" />
             </a>
             <a className={`${styles.btn} ${styles.write_btn}`} target="_blank" href="/">
-              <i className={`${styles.iconfont} ${styles.ic_write}`}></i>
+              <i className={`iconfont icon-line-quillpenyumaobi`}></i>
               写文章
             </a>
             <a className={`${styles.btn} ${styles.sign_up}`} href="/">
@@ -22,8 +22,8 @@ class Header extends Component {
               登录
             </a>
             <div className={styles.style_mode}>
-              <a className={styles.style_mode_btn}>
-                Aa
+              <a className={styles.style_mode_btn} href="/">
+                <i className={`iconfont icon-Aa`}></i>
               </a>
             </div>
             <div className={styles.container}>
@@ -31,17 +31,20 @@ class Header extends Component {
                 <ul className={`${styles.nav} ${styles.navbar_nav}`}>
                   <li className={`${styles.tab} ${styles.active}`}>
                     <a href="/">
-                      <span class="menu-text">首页</span>
+                      <span className="menu-text">首页</span>
+                      <i className={`iconfont icon-daohang ${styles.menu_icon}`}></i>
                     </a>
                   </li>
                   <li className={`${styles.tab}`}>
                     <a href="/">
-                      <span class="menu-text">下载App</span>
+                      <span className="menu-text">下载App</span>
+                      <i className={`iconfont icon-xiazai ${styles.menu_icon}`}></i>
                     </a>
                   </li>
                   <li className={`${styles.tab}`}>
                     <a href="/">
-                      <span class="menu-text">IT技术</span>
+                      <span className="menu-text">IT技术</span>
+                      <i className={`iconfont icon-yonghu ${styles.menu_icon}`}></i>
                     </a>
                   </li>
                 </ul>
