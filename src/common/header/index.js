@@ -3,30 +3,9 @@ import { connect } from 'react-redux'
 
 import styles from './style.module.css'
 import logoImg from '../../statics/logo.png';
+import { actionCreators } from './store/index.js'
 
 class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      focused: false,
-    }
-
-    this.handleSearchFocus = this.handleSearchFocus.bind(this)
-    this.handleSearchBlur = this.handleSearchBlur.bind(this)
-  }
-
-  handleSearchFocus() {
-    this.setState({
-      focused: true,
-    })
-  }
-
-  handleSearchBlur() {
-    this.setState({
-      focused: false,
-    })
-  }
-
   render() {
     return (
       <nav className={styles.navbar}>
@@ -79,8 +58,10 @@ class Header extends Component {
                   </li>
 
                   <li className={`${styles.tab} ${styles.search_wrapper}`}>
-                    <input className={`${styles.search} ${this.state.focused ? styles.focused : ''}`} placeholder="搜索" onFocus={this.handleSearchFocus} onBlur={this.handleSearchBlur} />
-                    <i className={`iconfont icon-fangdajing ${styles.search_icon} ${this.state.focused ? styles.icon_focused : ''}`}></i>
+                    <input className={`${styles.search} ${this.props.focused ? styles.focused : ''}`} placeholder="搜索" 
+                      onFocus={this.props.handleSearchFocus} onBlur={this.props.handleSearchBlur} 
+                    />
+                    <i className={`iconfont icon-fangdajing ${styles.search_icon} ${this.props.focused ? styles.icon_focused : ''}`}></i>
                   </li>
                 </ul>
               </div>
@@ -93,13 +74,19 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-
+    focused: state.header.focused,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+    handleSearchFocus() {
+      dispatch(actionCreators.searchFocus())
+    },
+  
+    handleSearchBlur() {
+      dispatch(actionCreators.searchBlur())
+    },
   }
 }
 
