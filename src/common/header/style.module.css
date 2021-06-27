@@ -234,7 +234,54 @@ li {
 .navbar_nav .menu_icon {
     display: inherit;
     float: left;
+    width: 25px;
+    height: 25px;
     font-size: 20px;
     margin-right: 5px;
     line-height: 28px;
+}
+
+.search_wrapper {
+    position: relative;
+    float: left;
+}
+
+.search {
+    width: 160px;
+    transition: width 0.2s;
+    height: 38px;
+    padding: 0 40px 0 20px;
+    margin-top: 9px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 19px;
+    outline: none;
+    background-color: #eee;
+    color: #666;
+    font-size: 14px;
+}
+
+.focused {
+    width: 180px;
+    transition: width 0.2s;
+}
+
+.icon_focused {
+    border-radius: 15px;
+    background-color: #777;
+    color: #fff;
+}
+
+.search_icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 5px;
+    bottom: 3px;
+}
+
+.search_icon:before {
+    position: relative;
+    left: 6px;
+    top: 6px;
 }
