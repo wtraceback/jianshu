@@ -6,6 +6,35 @@ import logoImg from '../../statics/logo.png';
 import { actionCreators } from './store/index.js'
 
 class Header extends Component {
+  getSearchInfo(show) {
+    if (show) {
+      return (
+        <div className={styles.search_info}>
+          <div className={styles.search_info_title}>
+            热门搜索
+            <span className={styles.search_info_change}>
+              换一批
+            </span>
+          </div>
+          <div className={styles.search_info_list}>
+            <a className={styles.search_info_item} href="/">教育</a>
+            <a className={styles.search_info_item} href="/">教育</a>
+            <a className={styles.search_info_item} href="/">教育</a>
+            <a className={styles.search_info_item} href="/">教育</a>
+            <a className={styles.search_info_item} href="/">教育</a>
+            <a className={styles.search_info_item} href="/">教育</a>
+            <a className={styles.search_info_item} href="/">教育</a>
+            <a className={styles.search_info_item} href="/">教育</a>
+            <a className={styles.search_info_item} href="/">教育</a>
+            <a className={styles.search_info_item} href="/">教育</a>
+          </div>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
+
   render() {
     return (
       <nav className={styles.navbar}>
@@ -62,6 +91,8 @@ class Header extends Component {
                       onFocus={this.props.handleSearchFocus} onBlur={this.props.handleSearchBlur} 
                     />
                     <i className={`iconfont icon-fangdajing ${styles.search_icon} ${this.props.focused ? styles.icon_focused : ''}`}></i>
+                    
+                    { this.getSearchInfo(this.props.focused) }
                   </li>
                 </ul>
               </div>
