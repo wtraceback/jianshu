@@ -6,8 +6,8 @@ import logoImg from '../../statics/logo.png';
 import { actionCreators } from './store/index.js'
 
 class Header extends Component {
-  getSearchInfo(show) {
-    if (show) {
+  getSearchInfo() {
+    if (this.props.focused) {
       return (
         <div className={styles.search_info}>
           <div className={styles.search_info_title}>
@@ -17,16 +17,13 @@ class Header extends Component {
             </span>
           </div>
           <div className={styles.search_info_list}>
-            <a className={styles.search_info_item} href="/">教育</a>
-            <a className={styles.search_info_item} href="/">教育</a>
-            <a className={styles.search_info_item} href="/">教育</a>
-            <a className={styles.search_info_item} href="/">教育</a>
-            <a className={styles.search_info_item} href="/">教育</a>
-            <a className={styles.search_info_item} href="/">教育</a>
-            <a className={styles.search_info_item} href="/">教育</a>
-            <a className={styles.search_info_item} href="/">教育</a>
-            <a className={styles.search_info_item} href="/">教育</a>
-            <a className={styles.search_info_item} href="/">教育</a>
+            {
+              this.props.search_info_list.map((item, index) => {
+                return (
+                  <a className={styles.search_info_item} href="/" key={index}>{item}</a>
+                )
+              })
+            }
           </div>
         </div>
       )
@@ -92,7 +89,7 @@ class Header extends Component {
                     />
                     <i className={`iconfont icon-fangdajing ${styles.search_icon} ${this.props.focused ? styles.icon_focused : ''}`}></i>
                     
-                    { this.getSearchInfo(this.props.focused) }
+                    { this.getSearchInfo() }
                   </li>
                 </ul>
               </div>
@@ -106,12 +103,16 @@ class Header extends Component {
 const mapStateToProps = (state) => {
   return {
     focused: state.get('header').get('focused'),
+    search_info_list: state.get('header').get('search_info_list'),
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSearchFocus() {
+      // 向后端发送请求获取热门搜索信息
+      dispatch(actionCreators.getSearchInfoList())
+      // 搜索框聚焦，显示热门搜索信息框
       dispatch(actionCreators.searchFocus())
     },
   
