@@ -3,17 +3,17 @@ import { fromJS } from 'immutable'
 
 import * as actionTypes from './actionTypes'
 
+const changeSearchInfoList = (data) => ({
+    type: actionTypes.SEARCH_INFO_LIST,
+    data: fromJS(data),
+})
+
 export const searchFocus = () => ({
     type: actionTypes.SEARCH_FOCUS
 })
 
 export const searchBlur = () => ({
     type: actionTypes.SEARCH_BLUR
-})
-
-const changeSearchInfoList = (data) => ({
-    type: actionTypes.SEARCH_INFO_LIST,
-    data: fromJS(data),
 })
 
 export const getSearchInfoList = () => {
