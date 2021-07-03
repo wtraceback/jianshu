@@ -16,6 +16,14 @@ export const searchBlur = () => ({
     type: actionTypes.SEARCH_BLUR
 })
 
+export const mouseEnter = () => ({
+    type: actionTypes.MOUSE_ENTER
+})
+
+export const mouseLeave = () => ({
+    type: actionTypes.MOUSE_LEAVE
+})
+
 export const getSearchInfoList = () => {
     return (dispatch) => {
         axios.get('/api/searchInfoList.json')

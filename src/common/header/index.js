@@ -7,9 +7,12 @@ import { actionCreators } from './store'
 
 class Header extends Component {
   getSearchInfo() {
-    if (this.props.focused) {
+    if (this.props.focused || this.props.mouse_enter) {
       return (
-        <div className={styles.search_info}>
+        <div className={styles.search_info}
+          onMouseEnter={this.props.handleMouseEnter}
+          onMouseLeave={this.props.handleMouseLeave}
+        >
           <div className={styles.search_info_title}>
             热门搜索
             <span className={styles.search_info_change}>
@@ -104,6 +107,7 @@ const mapStateToProps = (state) => {
   return {
     focused: state.get('header').get('focused'),
     search_info_list: state.get('header').get('search_info_list'),
+    mouse_enter: state.get('header').get('mouse_enter'),
   }
 }
 
@@ -118,6 +122,14 @@ const mapDispatchToProps = (dispatch) => {
   
     handleSearchBlur() {
       dispatch(actionCreators.searchBlur())
+    },
+
+    handleMouseEnter() {
+      dispatch(actionCreators.mouseEnter())
+    },
+
+    handleMouseLeave() {
+      dispatch(actionCreators.mouseLeave())
     },
   }
 }
