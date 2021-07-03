@@ -6,6 +6,8 @@ const defaultState = fromJS({
     focused: false,
     search_info_list: [],
     mouse_enter: false,
+    page: 0,
+    perpage: 10,
 })
 
 const reducer = (state=defaultState, action) => {
@@ -20,8 +22,10 @@ const reducer = (state=defaultState, action) => {
             return state.set('mouse_enter', true)
         case actionTypes.MOUSE_LEAVE:
             return state.set('mouse_enter', false)
+        case actionTypes.SEARCH_INFO_CHANGE:
+            return state.set('page', action.page)
         default:
-        return state
+            return state
     }
 }
 

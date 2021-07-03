@@ -7,6 +7,16 @@ import { actionCreators } from './store'
 
 class Header extends Component {
   getSearchInfo() {
+    let { page, perpage, search_info_list } = this.props;
+    let list = search_info_list.toJS()
+    let list_len = list.length
+    let totalpage = Math.ceil(list_len / perpage)
+    let page_list = []
+
+    for(let i = page * 10; i < list_len && i < perpage + page * 10; i++) {
+      page_list.push(list[i])
+    }
+
     if (this.props.focused || this.props.mouse_enter) {
       return (
         <div className={styles.search_info}
@@ -15,13 +25,15 @@ class Header extends Component {
         >
           <div className={styles.search_info_title}>
             热门搜索
-            <span className={styles.search_info_change}>
+            <span className={styles.search_info_change}
+              onClick={() => this.props.handleSearchInfoChange(page, totalpage)}
+            >
               换一批
             </span>
           </div>
           <div className={styles.search_info_list}>
             {
-              this.props.search_info_list.map((item, index) => {
+              page_list.map((item, index) => {
                 return (
                   <a className={styles.search_info_item} href="/" key={index}>{item}</a>
                 )
@@ -108,6 +120,8 @@ const mapStateToProps = (state) => {
     focused: state.get('header').get('focused'),
     search_info_list: state.get('header').get('search_info_list'),
     mouse_enter: state.get('header').get('mouse_enter'),
+    page: state.get('header').get('page'),
+    perpage: state.get('header').get('perpage'),
   }
 }
 
@@ -130,6 +144,11 @@ const mapDispatchToProps = (dispatch) => {
 
     handleMouseLeave() {
       dispatch(actionCreators.mouseLeave())
+    },
+
+    handleSearchInfoChange(page, totalpage) {
+      let new_page = (page + 1) % totalpage
+      dispatch(actionCreators.searchInfoChange(new_page))
     },
   }
 }
