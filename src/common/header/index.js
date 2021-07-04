@@ -26,8 +26,9 @@ class Header extends Component {
           <div className={styles.search_info_title}>
             热门搜索
             <span className={styles.search_info_change}
-              onClick={() => this.props.handleSearchInfoChange(page, totalpage)}
+              onClick={() => this.props.handleSearchInfoChange(page, totalpage, this.spin_icon)}
             >
+              <i ref={(icon) => {this.spin_icon = icon}} className={`iconfont icon-spin`}></i>
               换一批
             </span>
           </div>
@@ -146,7 +147,17 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actionCreators.mouseLeave())
     },
 
-    handleSearchInfoChange(page, totalpage) {
+    handleSearchInfoChange(page, totalpage, spin_icon) {
+      // 换一换的旋转过渡动画效果
+      let origin_angle = spin_icon.style.transform.replace(/[^0-9]/ig, '')
+      if (origin_angle === '') {
+        origin_angle = 0
+      } else {
+        origin_angle = parseInt(origin_angle, 10)
+      }
+      spin_icon.style.transform = `rotate(${origin_angle + 360}deg)`
+
+      // 翻到下一页
       let new_page = (page + 1) % totalpage
       dispatch(actionCreators.searchInfoChange(new_page))
     },

@@ -305,6 +305,17 @@ li {
 .search_info_change {
     float: right;
     font-size: 13px;
+    cursor: pointer;
+}
+
+.search_info_change > i {
+    display:inline-block;
+    height: 18px;
+    font-size: 13px;
+    margin-right: 3px;
+    transition: all .5s ease-in;
+    transform: rotate(0deg);
+    transform-origin: center center;
 }
 
 .search_info_list {
