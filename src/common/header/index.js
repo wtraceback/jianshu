@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import styles from './style.module.css'
+import styles from './index.module.css'
 import logoImg from '../../statics/logo.png';
 import { actionCreators } from './store'
 
