@@ -101,7 +101,8 @@ class Header extends Component {
 
                   <li className={`${styles.tab} ${styles.search_wrapper}`}>
                     <input className={`${styles.search} ${this.props.focused ? styles.focused : ''}`} placeholder="搜索" 
-                      onFocus={this.props.handleSearchFocus} onBlur={this.props.handleSearchBlur} 
+                      onFocus={() => this.props.handleSearchFocus(this.props.search_info_list)} 
+                      onBlur={this.props.handleSearchBlur} 
                     />
                     <i className={`iconfont icon-fangdajing ${styles.search_icon} ${this.props.focused ? styles.icon_focused : ''}`}></i>
                     
@@ -128,9 +129,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSearchFocus() {
-      // 向后端发送请求获取热门搜索信息
-      dispatch(actionCreators.getSearchInfoList())
+    handleSearchFocus(search_info_list) {
+      if (search_info_list.size === 0) {
+        // 向后端发送请求获取热门搜索信息
+        dispatch(actionCreators.getSearchInfoList())
+      }
+
       // 搜索框聚焦，显示热门搜索信息框
       dispatch(actionCreators.searchFocus())
     },
