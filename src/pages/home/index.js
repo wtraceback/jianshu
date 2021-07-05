@@ -14,8 +14,8 @@ class Home extends Component {
                 <div className={styles.row}>
                     <div className={styles.left}>
                         <Banner />
-                        <List />
                         <Recommend />
+                        <List />
                     </div>
                     <div className={styles.right}>
                         <Topic />
