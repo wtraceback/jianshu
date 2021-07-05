@@ -37,5 +37,6 @@
 }
 
 .more_hot_collection > i {
-    margin-left: -5px;
+    font-size: 13px;
+    margin-left: 6px;
 }

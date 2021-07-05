@@ -25,7 +25,7 @@ class Recommend extends Component {
 
                 <a className={styles.more_hot_collection} target="_blank" href="/">
                     更多热门专题 
-                    {/* <i class="iconfont ic-link"></i> */}
+                    <i className="iconfont icon-dayuhao"></i>
                 </a>
             </div>
         )
