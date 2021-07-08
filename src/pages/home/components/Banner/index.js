@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import styles from './index.module.css'
-import bannerImg from '../../../../statics/slam_dunk.jpg';
 
 class Banner extends Component {
     render() {
@@ -10,7 +9,7 @@ class Banner extends Component {
                 <div className={styles.carousel_inner}>
                     <div className={styles.banner} data-banner-name="首页图片栏">
                         <a target="_blank" href="/">
-                            <img className={styles.banner_img} src={bannerImg} alt="540" />
+                            <img className={styles.banner_img} src='/api/images/banner/slam_dunk.jpg' alt="540" />
                         </a>
                     </div>
                 </div>
