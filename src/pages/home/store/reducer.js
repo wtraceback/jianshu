@@ -45,6 +45,32 @@ const defaultState = fromJS({
             // imgUrl: 'https://upload.jianshu.io/collections/images/13/%E5%95%8A.png?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64',
         },
     ],
+    article_list: [
+        {
+            id: 1,
+            title: '写故事的恶魔',
+            abstract: '那个人好奇怪，写故事写到入了魔，可别人问他，他又说不出这样写是为了什么。 “可是我觉得他写得挺好的啊！”一个小孩看了他的故事之后忍不住说道。',
+            jsd_meta: 99.3,
+            nickname: '也觉',
+            commentNum: 27,
+            like: 161,
+            reward: 1,
+            imgUrl: '',
+            imgAlt: '',
+        },
+        {
+            id: 2,
+            title: '写故事的恶魔',
+            abstract: '那个人好奇怪，写故事写到入了魔，可别人问他，他又说不出这样写是为了什么。 “可是我觉得他写得挺好的啊！”一个小孩看了他的故事之后忍不住说道。',
+            jsd_meta: 99.3,
+            nickname: '也觉',
+            commentNum: 27,
+            like: 161,
+            reward: 1,
+            imgUrl: '/api/images/delit_time.jpeg',
+            imgAlt: '',
+        },
+    ],
 })
 
 const reducer = (state=defaultState, action) => {
