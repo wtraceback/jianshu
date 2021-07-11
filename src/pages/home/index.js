@@ -5,7 +5,7 @@ import Banner from './components/Banner/index'
 import List from './components/List/index'
 import Recommend from './components/Recommend/index'
 import Board from './components/Board/index'
-import Writer from './components/Writer/index'
+import Author from './components/Author/index'
 
 class Home extends Component {
     render() {
@@ -19,7 +19,7 @@ class Home extends Component {
                     </div>
                     <div className={styles.right}>
                         <Board />
-                        <Writer />
+                        <Author />
                     </div>
                 </div>
             </div>
