@@ -9,10 +9,8 @@ class Writer extends Component {
                 <div className={styles.authors}>
                     <div className={styles.title}>
                         <span>推荐作者</span>
-                        <a className={styles.page_change}>
-                            <i className="iconfont">
-                                
-                            </i>
+                        <a className={styles.page_change} href="/">
+                            <i className={`iconfont icon-spin`}></i>
                             换一批
                         </a>
                     </div>
@@ -21,8 +19,8 @@ class Writer extends Component {
                             <a href="/u/ef4f2422125f?utm_source=desktop&amp;utm_medium=index-users" target="_blank" className={styles.avatar}>
                                 <img src="https://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp" />
                             </a> 
-                            <a className={styles.follow} state="0">
-                                <i className="iconfont ic-follow"></i>
+                            <a className={styles.follow} state="0" href="/">
+                                <i className="iconfont icon-follow"></i>
                                 关注
                             </a> 
                             <a href="/u/ef4f2422125f?utm_source=desktop&amp;utm_medium=index-users" target="_blank" className={styles.name}>
@@ -37,7 +35,7 @@ class Writer extends Component {
                                 <img src="https://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp" />
                             </a> 
                             <a className={styles.follow} state="0">
-                                <i className="iconfont ic-follow"></i>
+                                <i className="iconfont icon-follow"></i>
                                 关注
                             </a> 
                             <a href="/u/ef4f2422125f?utm_source=desktop&amp;utm_medium=index-users" target="_blank" className={styles.name}>
@@ -52,7 +50,7 @@ class Writer extends Component {
                                 <img src="https://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp" />
                             </a> 
                             <a className={styles.follow} state="0">
-                                <i className="iconfont ic-follow"></i>
+                                <i className="iconfont icon-follow"></i>
                                 关注
                             </a> 
                             <a href="/u/ef4f2422125f?utm_source=desktop&amp;utm_medium=index-users" target="_blank" className={styles.name}>
@@ -67,7 +65,7 @@ class Writer extends Component {
                                 <img src="https://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp" />
                             </a> 
                             <a className={styles.follow} state="0">
-                                <i className="iconfont ic-follow"></i>
+                                <i className="iconfont icon-follow"></i>
                                 关注
                             </a> 
                             <a href="/u/ef4f2422125f?utm_source=desktop&amp;utm_medium=index-users" target="_blank" className={styles.name}>
@@ -82,7 +80,7 @@ class Writer extends Component {
                                 <img src="https://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp" />
                             </a> 
                             <a className={styles.follow} state="0">
-                                <i className="iconfont ic-follow"></i>
+                                <i className="iconfont icon-follow"></i>
                                 关注
                             </a> 
                             <a href="/u/ef4f2422125f?utm_source=desktop&amp;utm_medium=index-users" target="_blank" className={styles.name}>
@@ -91,10 +89,11 @@ class Writer extends Component {
                             <p>
                                 写了2055.6k字 · 34.3k喜欢
                             </p>
-                        </li>                        
+                        </li>
                     </ul>
                     <a href="/" target="_blank" className={styles.find_more}>
-
+                        查看全部
+                        <i className="iconfont icon-dayuhao1"></i>
                     </a>
                 </div>
             </div>

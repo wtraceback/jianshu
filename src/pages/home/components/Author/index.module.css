@@ -13,11 +13,26 @@
     text-align: left;
 }
 
-.title .page_change {
-    float: right;
-    display: inline-block;
+.title span {
     font-size: 14px;
     color: #969696;
+}
+
+.title .page_change {
+    display: inline-block;
+    float: right;
+    font-size: 14px;
+    color: #969696;
+}
+
+.page_change i {
+    display: inline-block;
+    height: 18px;
+    font-size: 13px;
+    margin-right: 3px;
+    transition: all .5s ease-in;
+    transform: rotate(0deg);
+    transform-origin: center center;
 }
 
 .list {
@@ -95,5 +110,30 @@
     position: inherit;
     width: inherit;
     height: inherit;
+    font-size: 12px;
+    margin-right: 2px;
+}
+
+.find_more {
+    position: absolute;
+    padding: 7px 7px 7px 12px;
+    left: 0;
+    width: 100%;
     font-size: 13px;
+    color: #787878;
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+}
+
+.find_more i {
+    width: inherit;
+    height: inherit;
+    font-size: 14px;
+    margin-left: 3px;
+}
+
+.authors a {
+    color: #333;
+    cursor: pointer;
 }
