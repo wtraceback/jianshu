@@ -2,16 +2,17 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import styles from './index.module.css'
+import { actionCreators } from '../../store'
 
 class Writer extends Component {
     render() {
-        let { authors_page, authors_perpage, recommend_authors_list } = this.props;
-        let list = recommend_authors_list.toJS()
+        let { page, perpage, authors_list } = this.props;
+        let list = authors_list.toJS()
         let list_len = list.length
-        let totalpage = Math.ceil(list_len / authors_perpage)
+        let totalpage = Math.ceil(list_len / perpage)
         let page_list = []
 
-        for(let i = authors_page * authors_perpage; i < list_len && i < authors_perpage + authors_page * authors_perpage; i++) {
+        for(let i = page * perpage; i < list_len && i < perpage + page * perpage; i++) {
             page_list.push(list[i])
         }
 
@@ -20,8 +21,8 @@ class Writer extends Component {
                 <div className={styles.authors}>
                     <div className={styles.title}>
                         <span>推荐作者</span>
-                        <a className={styles.page_change} href="/" onClick={this.props.handleAuthorPageChange}>
-                            <i className={`iconfont icon-spin`}></i>
+                        <a className={styles.page_change} href="/" onClick={(e) => {e.preventDefault();this.props.handleAuthorPageChange(page, totalpage, this.author_spin_icon)}}>
+                            <i ref={(icon) => {this.author_spin_icon = icon}} className={`iconfont icon-spin`}></i>
                             换一批
                         </a>
                     </div>
@@ -62,17 +63,27 @@ class Writer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        recommend_authors_list: state.get('home').get('recommend_authors_list'),
-        authors_page: state.get('home').get('authors_page'),
-        authors_perpage: state.get('home').get('authors_perpage'),
+        authors_list: state.get('home').get('recommend_authors_list'),
+        page: state.get('home').get('authors_page'),
+        perpage: state.get('home').get('authors_perpage'),
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleAuthorPageChange(e) {
-            e.preventDefault()
-            console.log('test')
+        handleAuthorPageChange(page, totalpage, author_spin_icon) {
+            // 换一换的旋转过渡动画效果
+            let origin_angle = author_spin_icon.style.transform.replace(/[^0-9]/ig, '')
+            if (origin_angle === '') {
+                origin_angle = 0
+            } else {
+                origin_angle = parseInt(origin_angle, 10)
+            }
+            author_spin_icon.style.transform = `rotate(${origin_angle + 360}deg)`
+
+            // 翻到下一页
+            let new_page = (page + 1) % totalpage
+            dispatch(actionCreators.recommendAuthorsChange(new_page))
         },
     }
 }

@@ -1,5 +1,5 @@
 .author_warp {
-    
+
 }
 
 .authors {
@@ -27,10 +27,11 @@
 
 .page_change i {
     display: inline-block;
-    height: 18px;
+    height: 13px;
+    line-height: 1;
     font-size: 13px;
     margin-right: 3px;
-    transition: all .5s ease-in;
+    transition: all .2s ease;
     transform: rotate(0deg);
     transform-origin: center center;
 }

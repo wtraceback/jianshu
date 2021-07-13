@@ -1,5 +1,7 @@
 import { fromJS } from 'immutable'
 
+import * as actionTypes from './actionTypes'
+
 const defaultState = fromJS({
     recommend_list: [
         {
@@ -171,6 +173,8 @@ const defaultState = fromJS({
 
 const reducer = (state=defaultState, action) => {
     switch(action.type) {
+        case actionTypes.RECOMMEND_AUTHORS_CHANGE:
+            return state.set('authors_page', action.page)
         default:
             return state
     }
