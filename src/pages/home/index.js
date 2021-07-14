@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import styles from './index.module.css'
 import Banner from './components/Banner/index'
@@ -6,6 +7,7 @@ import List from './components/List/index'
 import Recommend from './components/Recommend/index'
 import Board from './components/Board/index'
 import Author from './components/Author/index'
+import { actionCreators } from './store'
 
 class Home extends Component {
     render() {
@@ -25,6 +27,26 @@ class Home extends Component {
             </div>
         )
     }
+
+    componentDidMount() {
+        this.props.handleGetHomeData()
+    }
 }
 
-export default Home
+
+
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleGetHomeData() {
+            dispatch(actionCreators.getHomeData())
+        },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
