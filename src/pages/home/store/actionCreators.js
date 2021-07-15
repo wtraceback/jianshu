@@ -12,6 +12,13 @@ const changeHomeData = (result) => {
     }
 }
 
+const addMoreList = (list) => {
+    return {
+        type: actionTypes.ADD_ARTICLE_LIST,
+        list: list,
+    }
+}
+
 export const recommendAuthorsChange = (page) => ({
     type: actionTypes.RECOMMEND_AUTHORS_CHANGE,
     page: page,
@@ -24,8 +31,20 @@ export const getHomeData = () => {
             const result = res.data.data
             dispatch(changeHomeData(result))
         })
-        .catch(() => {
-            console.log('error catch');
+        .catch((error) => {
+            console.log(error);
         })
+    }
+}
+
+export const getMoreList = () => {
+    return (dispatch) => {
+        axios.get('/api/homeList.json')
+            .then((res) => {
+                dispatch(addMoreList(res.data.data))
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 }
