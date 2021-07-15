@@ -9,6 +9,7 @@ const defaultState = fromJS({
     recommend_authors_list: [],
     authors_page: 0,
     authors_perpage: 5,
+    article_page: 1,
 })
 
 const reducer = (state=defaultState, action) => {
@@ -23,7 +24,10 @@ const reducer = (state=defaultState, action) => {
                 recommend_authors_list: fromJS(action.recommend_authors_list),
             })
         case actionTypes.ADD_ARTICLE_LIST:
-            return state.set('article_list', state.get('article_list').concat(fromJS(action.list)))
+            return state.merge({
+                'article_list': state.get('article_list').concat(fromJS(action.list)),
+                'article_page': action.next_page,
+            })
         default:
             return state
     }

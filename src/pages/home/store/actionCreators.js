@@ -12,10 +12,11 @@ const changeHomeData = (result) => {
     }
 }
 
-const addMoreList = (list) => {
+const addMoreList = (list, next_page) => {
     return {
         type: actionTypes.ADD_ARTICLE_LIST,
         list: list,
+        next_page: next_page,
     }
 }
 
@@ -37,11 +38,15 @@ export const getHomeData = () => {
     }
 }
 
-export const getMoreList = () => {
+export const getMoreList = (next_page) => {
     return (dispatch) => {
-        axios.get('/api/homeList.json')
+        axios.get('/api/homeList.json', {
+            params: {
+                page: next_page
+            }
+        })
             .then((res) => {
-                dispatch(addMoreList(res.data.data))
+                dispatch(addMoreList(res.data.data, next_page))
             })
             .catch((error) => {
                 console.log(error)

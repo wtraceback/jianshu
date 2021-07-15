@@ -62,7 +62,7 @@ class List extends Component {
                 </div>
 
                 <a data-page="3" href="/" className={styles.load_more}
-                    onClick={(e) => {e.preventDefault();this.props.handleGetMoreList()}}
+                    onClick={(e) => {e.preventDefault();this.props.handleGetMoreList(this.props.article_page)}}
                 >
                     阅读更多
                 </a>
@@ -74,13 +74,14 @@ class List extends Component {
 const mapStateToProps = (state) => {
     return {
         article_list: state.get('home').get('article_list'),
+        article_page: state.get('home').get('article_page'),
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleGetMoreList() {
-            dispatch(actionCreators.getMoreList())
+        handleGetMoreList(page) {
+            dispatch(actionCreators.getMoreList(page + 1))
         },
     }
 }
