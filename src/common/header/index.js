@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import styles from './index.module.css'
 import logoImg from '../../statics/logo.png';
@@ -36,7 +37,7 @@ class Header extends Component {
             {
               page_list.map((item, index) => {
                 return (
-                  <a className={styles.search_info_item} href="/" key={index}>{item}</a>
+                  <Link className={styles.search_info_item} to="/" key={index}>{item}</Link>
                 )
               })
             }
@@ -52,60 +53,60 @@ class Header extends Component {
     return (
       <nav className={styles.navbar}>
           <div className={styles.width_limit}>
-            <a className={styles.logo} href="/">
+            <Link className={styles.logo} to="/">
               <img className={styles.logo_img} src={logoImg} alt="Nav logo" />
-            </a>
+            </Link>
 
-            <a className={`${styles.btn} ${styles.write_btn}`} target="_blank" href="/">
+            <Link className={`${styles.btn} ${styles.write_btn}`} to="/">
               <i className={`iconfont icon-line-quillpenyumaobi`}></i>
               写文章
-            </a>
+            </Link>
 
-            <a className={`${styles.btn} ${styles.sign_up}`} href="/">
+            <Link className={`${styles.btn} ${styles.sign_up}`} to="/">
               注册
-            </a>
+            </Link>
 
-            <a className={`${styles.btn} ${styles.login_in}`} href="/">
+            <Link className={`${styles.btn} ${styles.login_in}`} to="/">
               登录
-            </a>
+            </Link>
 
             <div className={styles.style_mode}>
-              <a className={styles.style_mode_btn} href="/">
+              <Link className={styles.style_mode_btn} to="/">
                 <i className={`iconfont icon-Aa`}></i>
-              </a>
+              </Link>
             </div>
 
             <div className={styles.container}>
               <div className={`${styles.collapse} ${styles.navbar_collapse}`}>
                 <ul className={`${styles.nav} ${styles.navbar_nav}`}>
                   <li className={`${styles.tab} ${styles.active}`}>
-                    <a href="/">
+                    <Link to="/">
                       <span className="menu-text">首页</span>
                       <i className={`iconfont icon-daohang ${styles.menu_icon}`}></i>
-                    </a>
+                    </Link>
                   </li>
 
                   <li className={`${styles.tab}`}>
-                    <a href="/">
+                    <Link to="/">
                       <span className="menu-text">下载App</span>
                       <i className={`iconfont icon-xiazai ${styles.menu_icon}`}></i>
-                    </a>
+                    </Link>
                   </li>
 
                   <li className={`${styles.tab}`}>
-                    <a href="/">
+                    <Link to="/">
                       <span className="menu-text">IT技术</span>
                       <i className={`iconfont icon-yonghu ${styles.menu_icon}`}></i>
-                    </a>
+                    </Link>
                   </li>
 
                   <li className={`${styles.tab} ${styles.search_wrapper}`}>
-                    <input className={`${styles.search} ${this.props.focused ? styles.focused : ''}`} placeholder="搜索" 
-                      onFocus={() => this.props.handleSearchFocus(this.props.search_info_list)} 
-                      onBlur={this.props.handleSearchBlur} 
+                    <input className={`${styles.search} ${this.props.focused ? styles.focused : ''}`} placeholder="搜索"
+                      onFocus={() => this.props.handleSearchFocus(this.props.search_info_list)}
+                      onBlur={this.props.handleSearchBlur}
                     />
                     <i className={`iconfont icon-fangdajing ${styles.search_icon} ${this.props.focused ? styles.icon_focused : ''}`}></i>
-                    
+
                     { this.getSearchInfo() }
                   </li>
                 </ul>
@@ -138,7 +139,7 @@ const mapDispatchToProps = (dispatch) => {
       // 搜索框聚焦，显示热门搜索信息框
       dispatch(actionCreators.searchFocus())
     },
-  
+
     handleSearchBlur() {
       dispatch(actionCreators.searchBlur())
     },

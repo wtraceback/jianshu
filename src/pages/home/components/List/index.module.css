@@ -61,6 +61,11 @@
     font-weight: 700;
     line-height: 1.5;
     font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+    color: #333;
+}
+
+.note_list .title:hover {
+    text-decoration: underline;
 }
 
 .note_list .abstract {
@@ -98,6 +103,10 @@
 .note_list .meta i {
     font-size: 12px;
     margin-right: 3px;
+}
+
+.note_list .meta a:hover {
+    color: #787878;
 }
 
 .list .load_more {

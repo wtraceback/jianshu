@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { actionCreators } from '../../store'
+import { Link } from 'react-router-dom'
 
+import { actionCreators } from '../../store'
 import styles from './index.module.css'
 
 class List extends Component {
@@ -19,16 +20,16 @@ class List extends Component {
                                     >
                                         {
                                             item.get('imgUrl') === '' ? '' : (
-                                                <a className={styles.wrap_img} href="/" target="_blank">
+                                                <Link className={styles.wrap_img} to="/">
                                                     <img src={item.get('imgUrl')} alt={item.get('imgAlt')} />
-                                                </a>
+                                                </Link>
                                             )
                                         }
 
                                         <div className={styles.content}>
-                                            <a className={styles.title} target="_blank" href="/">
+                                            <Link className={styles.title} to="/detail">
                                                 { item.get('title') }
-                                            </a>
+                                            </Link>
                                             <p className={styles.abstract}>
                                                 { item.get('abstract') }
                                             </p>
@@ -37,13 +38,13 @@ class List extends Component {
                                                     <i className="iconfont icon-diamond1"></i>
                                                     { item.get('jsd_meta') }
                                                 </span>
-                                                <a className={styles.nickname} target="_blank" href="/">
+                                                <Link className={styles.nickname} to="/">
                                                     { item.get('nickname') }
-                                                </a>
-                                                <a target="_blank" href="/">
+                                                </Link>
+                                                <Link to="/">
                                                     <i className="iconfont icon-FontAwesomecommentaltsolid1"></i>
                                                     { item.get('commentNum') }
-                                                </a>
+                                                </Link>
                                                 <span>
                                                     <i className="iconfont icon-home_ico_like-"></i>
                                                     { item.get('like') }
