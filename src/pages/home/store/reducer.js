@@ -10,6 +10,7 @@ const defaultState = fromJS({
     authors_page: 0,
     authors_perpage: 5,
     article_page: 1,
+    show_back_top: false,
 })
 
 const reducer = (state=defaultState, action) => {
@@ -28,6 +29,8 @@ const reducer = (state=defaultState, action) => {
                 'article_list': state.get('article_list').concat(fromJS(action.list)),
                 'article_page': action.next_page,
             })
+        case actionTypes.SHOW_BACK_TOP:
+            return state.set('show_back_top', action.show_back_top)
         default:
             return state
     }

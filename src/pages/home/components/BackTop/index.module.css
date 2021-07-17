@@ -1,0 +1,39 @@
+.side_tool {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 1040;
+}
+
+.side_tool ul {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.side_tool > ul > li:last-child {
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.side_tool > ul > li {
+    border: 1px solid #dcdcdc;
+    border-bottom: none;
+    background-color: #fff;
+    transition: .1s ease-in;
+    line-height: 20px;
+}
+
+.side_tool > ul .function_button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    display: block;
+}
+
+.side_tool > ul .function_button i {
+    padding-top: 16px;
+    font-size: 20px;
+    display: block;
+}

@@ -7,6 +7,7 @@ import List from './components/List/index'
 import Recommend from './components/Recommend/index'
 import Board from './components/Board/index'
 import Author from './components/Author/index'
+import BackTop from './components/BackTop/index'
 import { actionCreators } from './store'
 
 class Home extends Component {
@@ -23,6 +24,7 @@ class Home extends Component {
                         <Board />
                         <Author />
                     </div>
+                    <BackTop></BackTop>
                 </div>
             </div>
         )

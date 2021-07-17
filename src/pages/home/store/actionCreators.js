@@ -53,3 +53,10 @@ export const getMoreList = (next_page) => {
             })
     }
 }
+
+export const toggleShowBackTop = (show_back_top) => {
+    return {
+        type: actionTypes.SHOW_BACK_TOP,
+        show_back_top: show_back_top,
+    }
+}
