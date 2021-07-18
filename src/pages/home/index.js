@@ -9,24 +9,28 @@ import Board from './components/Board/index'
 import Author from './components/Author/index'
 import BackTop from './components/BackTop/index'
 import { actionCreators } from './store'
+import Header from '../../common/header'
 
 class Home extends Component {
     render() {
         return (
-            <div className={styles.container}>
-                <div className={styles.row}>
-                    <div className={styles.left}>
-                        <Banner />
-                        <Recommend />
-                        <List />
+            <>
+                <Header />
+                <div className={styles.container}>
+                    <div className={styles.row}>
+                        <div className={styles.left}>
+                            <Banner />
+                            <Recommend />
+                            <List />
+                        </div>
+                        <div className={styles.right}>
+                            <Board />
+                            <Author />
+                        </div>
+                        <BackTop />
                     </div>
-                    <div className={styles.right}>
-                        <Board />
-                        <Author />
-                    </div>
-                    <BackTop />
                 </div>
-            </div>
+            </>
         )
     }
 

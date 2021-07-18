@@ -66,7 +66,7 @@ class Header extends Component {
               注册
             </Link>
 
-            <Link className={`${styles.btn} ${styles.login_in}`} to="/">
+            <Link className={`${styles.btn} ${styles.login_in}`} to="/login">
               登录
             </Link>
 
