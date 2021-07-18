@@ -10,7 +10,7 @@ class Detail extends Component {
                 <div className={styles.container}>
                     <div className={styles.row}>
                         <div className={styles.left}>
-                            <Article />
+                            <Article id={this.props.match.params.id} />
                         </div>
                         <div className={styles.right}>
                             hello world aside

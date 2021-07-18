@@ -110,7 +110,7 @@ class Article extends Component {
     }
 
     componentDidMount() {
-        this.props.handleGetDetail()
+        this.props.handleGetDetail(this.props.id)
     }
 }
 
@@ -129,8 +129,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleGetDetail() {
-            dispatch(actionCreators.getDetail())
+        handleGetDetail(id) {
+            dispatch(actionCreators.getDetail(id))
         },
     }
 }

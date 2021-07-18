@@ -27,7 +27,7 @@ class List extends Component {
                                         }
 
                                         <div className={styles.content}>
-                                            <Link className={styles.title} to="/detail">
+                                            <Link className={styles.title} to={'/detail/' + item.get('id')}>
                                                 { item.get('title') }
                                             </Link>
                                             <p className={styles.abstract}>
