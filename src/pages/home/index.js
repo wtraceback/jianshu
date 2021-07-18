@@ -24,7 +24,7 @@ class Home extends Component {
                         <Board />
                         <Author />
                     </div>
-                    <BackTop></BackTop>
+                    <BackTop />
                 </div>
             </div>
         )

@@ -1,0 +1,41 @@
+.main {
+    background-color: #f9f9f9;
+}
+
+.main:after {
+    content: "020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.container {
+    width: 1000px;
+	margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.left {
+    position: relative;
+    float: left;
+    width: 70%;
+    padding: 15px 0 0 15px;
+    min-height: 1px;
+}
+
+.right {
+    position: relative;
+    float: left;
+    width: 26%;
+    min-height: 1px;
+    padding: 30px 0 0;
+    margin-left: 10px;
+}
