@@ -139,67 +139,6 @@ button.attention {
     word-break: break-word;
 }
 
-.image_package {
-    width: 100%;
-    margin: 0;
-    padding-bottom: 25px;
-    text-align: center;
-    font-size: 0;
-}
-
-.image_container {
-    max-width: 700px;
-    max-height: 695px;
-    background-color: transparent;
-    position: relative;
-    z-index: 95;
-    background-color: #e6e6e6;
-    transition: background-color .1s linear;
-    margin: 0 auto;
-}
-
-.image_container_fill {
-    padding-bottom: 67.86999999999999%;
-    z-index: 90;
-}
-
-.image_view {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.image_view > img {
-    cursor: zoom-in;
-    transition: all .15s linear;
-    z-index: 95;
-    opacity: 1;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    vertical-align: middle;
-    border: 0;
-}
-
-.image_package .image_caption:empty {
-    display: none;
-}
-
-.image_caption {
-    min-width: 20%;
-    max-width: 80%;
-    min-height: 43px;
-    display: inline-block;
-    padding: 10px;
-    margin: 0 auto;
-    border-bottom: 1px solid #eee;
-    font-size: 13px;
-    color: #999;
-}
-
 .article_content p {
     margin-top: 0;
     margin-bottom: 20px;

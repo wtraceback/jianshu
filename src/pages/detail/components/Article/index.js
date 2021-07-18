@@ -1,26 +1,28 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import styles from './index.module.css'
+import './index.css'
 
 class Article extends Component {
     render() {
         return (
-            <div>
+            <div className="article_detail">
                 <section className={styles.content}>
                     <h1 className={styles.header}>
-                        写故事的恶魔
+                        { this.props.title }
                     </h1>
 
                     <div className={styles.author_container}>
                         <div className={styles.author_info}>
                             <a href="/">
-                                <img className={styles.author_avatar} src="https://upload.jianshu.io/users/upload_avatars/22783713/5910cc42-6b85-41c0-aa29-9be078d437d3?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp" alt="" />
+                                <img className={styles.author_avatar} src={this.props.author_avatar} alt="" />
                             </a>
                             <div className={styles.author_text_container}>
                                 <div className={styles.author_text}>
                                     <span className={styles.author_name}>
                                         <a href="/">
-                                            也觉
+                                            { this.props.author_name }
                                         </a>
                                     </span>
                                     <button className={styles.attention}>
@@ -30,26 +32,37 @@ class Article extends Component {
                                 <div className={styles.article_info}>
                                     <span className={styles.article_diamond}>
                                         <i className={`iconfont icon-diamond1 ${styles.anticon}`}></i>
-                                        <span>100</span>
+                                        <span>
+                                            { this.props.diamond }
+                                        </span>
                                     </span>
-                                    <time>2021.04.02 22:35:03</time>
-                                    <span>字数 1,224</span>
-                                    <span>阅读 5,616</span>
+                                    <time>
+                                        { this.props.datetime }
+                                    </time>
+                                    <span>
+                                        字数 { this.props.word_count }
+                                    </span>
+                                    <span>
+                                        阅读 { this.props.readed }
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <article className={styles.article_content}>
-                        <div className={styles.image_package}>
-                            <div className={styles.image_container}>
-                                <div className={styles.image_container_fill}>
+                    <article
+                        className={styles.article_content}
+                        dangerouslySetInnerHTML={{__html: this.props.content}}
+                    >
+                        {/* <div class="image_package">
+                            <div class="image_container">
+                                <div class="image_container_fill">
                                 </div>
-                                <div className={styles.image_view}>
+                                <div class="image_view">
                                     <img src="/api/images/article/ermo.png" alt="" />
                                 </div>
                             </div>
-                            <div className={styles.image_caption}></div>
+                            <div class="image_caption"></div>
                         </div>
 
                         <p>那个人好奇怪，写故事写到入了魔，可别人问他，他又说不出这样写是为了什么。<br /></p>
@@ -67,15 +80,15 @@ class Article extends Component {
                         <p>判官看了看故事的创作者，想了想，然后说道：“好像也对！”</p>
                         <p>接着判官大笔一挥，写故事的人就又回到了人世，但接下来他的故事却逐渐开始从人间消失。</p>
 
-                        <div className={styles.image_package}>
-                            <div className={styles.image_container}>
-                                <div className={styles.image_container_fill}>
+                        <div class="image_package">
+                            <div class="image_container">
+                                <div class="image_container_fill">
                                 </div>
-                                <div className={styles.image_view}>
+                                <div class="image_view">
                                     <img src="/api/images/article/reading.png" alt="" />
                                 </div>
                             </div>
-                            <div className={styles.image_caption}></div>
+                            <div class="image_caption"></div>
                         </div>
 
                         <p>“你到底在干什么啊？”他身边的人开始问他。</p>
@@ -88,7 +101,7 @@ class Article extends Component {
                         <p>“意义？要什么意义？别人看到了就有意义啦？”他问。</p>
                         <p>“呃……至少能换点关注，得点钱，赚点名气也好呀！你这样写，啥东西也没有，你图个啥？”旁人继续问。</p>
                         <p>“不知道，我只是想写。”他已经不愿再听旁人的问话，又重新埋下了头开始写。</p>
-                        <p>“入了魔，真是。”旁人不理解，也不再理他。</p>
+                        <p>“入了魔，真是。”旁人不理解，也不再理他。</p> */}
                     </article>
                 </section>
             </div>
@@ -96,4 +109,23 @@ class Article extends Component {
     }
 }
 
-export default Article
+const mapStateToProps = (state) => {
+    return {
+        title: state.get('detail').get('title'),
+        content: state.get('detail').get('content'),
+        author_name: state.get('detail').get('author_name'),
+        author_avatar: state.get('detail').get('author_avatar'),
+        diamond: state.get('detail').get('diamond'),
+        datetime: state.get('detail').get('datetime'),
+        word_count: state.get('detail').get('word_count'),
+        readed: state.get('detail').get('readed'),
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Article)

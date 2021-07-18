@@ -13,7 +13,7 @@ class Detail extends Component {
                             <Article />
                         </div>
                         <div className={styles.right}>
-                            aside
+                            hello world aside
                         </div>
                     </div>
                 </div>
