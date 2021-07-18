@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import styles from './index.module.css'
 import './index.css'
+import { actionCreators } from '../../store'
 
 class Article extends Component {
     render() {
@@ -107,6 +108,10 @@ class Article extends Component {
             </div>
         )
     }
+
+    componentDidMount() {
+        this.props.handleGetDetail()
+    }
 }
 
 const mapStateToProps = (state) => {
@@ -124,7 +129,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
+        handleGetDetail() {
+            dispatch(actionCreators.getDetail())
+        },
     }
 }
 
