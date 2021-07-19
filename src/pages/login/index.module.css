@@ -1,4 +1,307 @@
-.main {
+.sign {
+    display: flex;
+    align-items: center;
+}
+
+.sign {
+    text-align: center;
+    font-size: 14px;
+    min-width: 900px;
     height: 100vh;
-    background-color: #f9f9f9;
+    background-color: #f1f1f1;
+    position: relative;
+}
+
+.sign form {
+    margin-bottom: 30px;
+}
+
+form {
+    margin: 0 0 20px;
+}
+
+.sign .logo {
+    position: absolute;
+    top: 56px;
+    margin-left: 50px;
+}
+
+.logo > a {
+    cursor: pointer;
+    color: #333;
+    background-color: transparent;
+}
+
+.sign .logo img {
+    width: 100px;
+    vertical-align: middle;
+    border: 0;
+}
+
+.sign_container {
+    width: 820px;
+    height: 600px;
+    margin: 0 auto;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: 45px 0;
+    position: relative;
+}
+
+.download_content {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 60px;
+    top: 452px;
+}
+
+.sign .sign_container .download_content .download_btn {
+    display: block;
+    width: 252px;
+    height: 46px;
+    margin-right: 15px;
+    background-color: #ea6f5a;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 46px;
+    cursor: pointer;
+}
+
+.download_qrcode {
+    width: 46px;
+    height: 46px;
+    position: relative;
+    border-radius: 5px;
+    background-size: 38px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-position: 4px 4px;
+    cursor: pointer;
+}
+
+.download_qrcode_big {
+    width: 160px;
+    height: 160px;
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    top: -185px;
+    left: -100px;
+    border-radius: 10px;
+    background-size: 132px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
+    z-index: 10;
+}
+
+.main {
+    float: right;
+    width: 400px;
+    margin: 0 auto;
+    padding: 50px 50px 30px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.sign .title {
+    margin: 0 auto 50px;
+    padding: 10px;
+    font-weight: 400;
+    color: #969696;
+}
+
+.title {
+    font-size: 18px;
+}
+
+.normal_title {
+
+}
+
+.sign .active,
+.sign .title .active {
+    font-weight: 700;
+    color: #ea6f5a;
+    border-bottom: 2px solid #ea6f5a;
+}
+
+.sign .title a {
+    padding: 10px;
+    color: #969696;
+}
+
+.sign .title b {
+    padding: 10px;
+    font-weight: 700;
+}
+
+.js_sign_in_container {
+
+}
+
+.input_prepend {
+    margin-bottom: 0;
+    position: relative;
+    width: 100%;
+}
+
+.input_prepend input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 0;
+    padding: 4px 12px 4px 35px;
+    border: 1px solid #c8c8c8;
+    border-radius: 0 0 4px 4px;
+    background-color: hsla(0,0%,71%,.1);
+    vertical-align: middle;
+}
+
+.input_prepend i {
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    font-size: 18px;
+    color: #969696;
+}
+
+.sign form .restyle input {
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+
+.remember_btn {
+    float: left;
+    margin: 15px 0;
+}
+
+input[type=checkbox], input[type=radio] {
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+}
+
+.remember_btn span {
+    margin-left: 5px;
+    font-size: 15px;
+    color: #969696;
+    vertical-align: top;
+}
+
+.forget_btn {
+    float: right;
+    position: relative;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.forget_btn a {
+    color: #999;
+}
+
+.sign .sign_in_button {
+    background: #3194d0;
+}
+
+.sign_in_button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 9px 18px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    background: #42c02e;
+    cursor: pointer;
+    outline: none;
+    display: block;
+    clear: both;
+}
+
+.sign .sign_in_button:hover {
+    background: #187cb7;
+}
+
+.more_sign {
+    margin-top: 50px;
+}
+
+.more_sign h6 {
+    position: relative;
+    margin: 0 0 10px;
+    font-size: 12px;
+    color: #b5b5b5;
+}
+
+.more_sign h6:before {
+    content: "";
+    border-top: 1px solid #b5b5b5;
+    display: block;
+    position: absolute;
+    width: 60px;
+    top: 5px;
+    left: 30px;
+}
+
+.more_sign h6:after {
+    content: "";
+    border-top: 1px solid #b5b5b5;
+    display: block;
+    position: absolute;
+    width: 60px;
+    top: 5px;
+    right: 30px;
+}
+
+h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.more_sign ul {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+ul {
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.more_sign ul li {
+    margin: 0 5px;
+    display: inline-block;
+    line-height: 20px;
+}
+
+.more_sign ul i {
+    font-size: 28px;
+}
+
+
+.more_sign ul a {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+}
+
+.more_sign .weibo i {
+    color: #e05244;
+}
+
+.more_sign .wechat i {
+    color: #00bb29;
+}
+
+.more_sign .qq i {
+    color: #498ad5;
 }
