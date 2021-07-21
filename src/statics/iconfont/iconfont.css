@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2634546 */
-  src: url('iconfont.woff2?t=1626709669676') format('woff2'),
-       url('iconfont.woff?t=1626709669676') format('woff'),
-       url('iconfont.ttf?t=1626709669676') format('truetype');
+  src: url('iconfont.woff2?t=1626739138334') format('woff2'),
+       url('iconfont.woff?t=1626739138334') format('woff'),
+       url('iconfont.ttf?t=1626739138334') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wodemima:before {
+  content: "\e641";
+}
+
+.icon-seeuser:before {
+  content: "\e601";
 }
 
 .icon-we-chat:before {

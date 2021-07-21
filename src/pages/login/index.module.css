@@ -85,7 +85,6 @@ form {
 .download_qrcode_big {
     width: 160px;
     height: 160px;
-    display: none;
     background-color: #fff;
     position: absolute;
     top: -185px;
@@ -96,6 +95,18 @@ form {
     background-repeat: no-repeat;
     box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
     z-index: 10;
+}
+
+.download_qrcode_big:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 33px;
+    height: 16px;
+    bottom: -16px;
+    right: 14px;
+    background-color: #fff;
+    clip-path: polygon(0 0,50% 100%,100% 0);
 }
 
 .main {
@@ -304,4 +315,9 @@ ul {
 
 .more_sign .qq i {
     color: #498ad5;
+}
+
+.js_sign_in_container input:focus {
+    outline: none;
+    box-shadow: none;
 }

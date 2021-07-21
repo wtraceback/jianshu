@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import styles from './index.module.css'
+import { actionCreators } from './store'
 
 class Login extends Component {
     render() {
@@ -22,11 +24,17 @@ class Login extends Component {
                         </a>
                         <div className={styles.download_qrcode}
                             style={{backgroundImage: 'url("/api/images/login/qrcode.png")'}}
+                            onMouseEnter={this.props.handleMouseEnter}
+                            onMouseLeave={this.props.handleMouseLeave}
                         >
-                            <div className={styles.download_qrcode_big}
-                                style={{backgroundImage: 'url("/api/images/login/qrcode.png")'}}
-                            >
-                            </div>
+                            {
+                                this.props.mouse_enter ? (
+                                    <div className={styles.download_qrcode_big}
+                                        style={{backgroundImage: 'url("/api/images/login/qrcode.png")'}}
+                                    >
+                                    </div>
+                                ) : null
+                            }
                         </div>
                     </div>
 
@@ -43,12 +51,12 @@ class Login extends Component {
                             <form id="new_session" action="/sessions" acceptCharset="UTF-8" method="post">
                                 <div className={`${styles.input_prepend} ${styles.restyle}`}>
                                     <input placeholder="手机号或邮箱" type="text" name="session[email_or_mobile_number]" id="session_email_or_mobile_number" />
-                                    <i className="iconfont ic-user"></i>
+                                    <i className="iconfont icon-seeuser"></i>
                                 </div>
 
                                 <div className={styles.input_prepend}>
                                     <input placeholder="密码" type="password" name="session[password]" id="session_password" />
-                                    <i className="iconfont ic-password"></i>
+                                    <i className="iconfont icon-wodemima"></i>
                                 </div>
 
                                 <div className={styles.remember_btn}>
@@ -95,4 +103,21 @@ class Login extends Component {
     }
 }
 
-export default Login
+const mapStateToProps = (state) => {
+    return {
+        mouse_enter: state.get('login').get('mouse_enter')
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleMouseEnter() {
+            dispatch(actionCreators.mouseEnter())
+        },
+        handleMouseLeave() {
+            dispatch(actionCreators.mouseLeave())
+        },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
