@@ -66,9 +66,19 @@ class Header extends Component {
               注册
             </Link>
 
-            <Link className={`${styles.btn} ${styles.login_in}`} to="/login">
-              登录
-            </Link>
+            {
+              this.props.login_status ? (
+                <Link className={`${styles.btn} ${styles.login_in}`} to="/">
+                  退出
+                </Link>
+              ) : (
+                <Link className={`${styles.btn} ${styles.login_in}`}
+                  to="/login"
+                >
+                  登录
+                </Link>
+              )
+            }
 
             <div className={styles.style_mode}>
               <Link className={styles.style_mode_btn} to="/">
@@ -125,6 +135,7 @@ const mapStateToProps = (state) => {
     mouse_enter: state.get('header').get('mouse_enter'),
     page: state.get('header').get('page'),
     perpage: state.get('header').get('perpage'),
+    login_status: state.get('login').get('login_status'),
   }
 }
 
