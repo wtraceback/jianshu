@@ -58,7 +58,7 @@ class Header extends Component {
               <img className={styles.logo_img} src={logoImg} alt="Nav logo" />
             </Link>
 
-            <Link className={`${styles.btn} ${styles.write_btn}`} to="/">
+            <Link className={`${styles.btn} ${styles.write_btn}`} to="/write">
               <i className={`iconfont icon-line-quillpenyumaobi`}></i>
               写文章
             </Link>
