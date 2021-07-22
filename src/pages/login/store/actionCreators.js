@@ -2,9 +2,9 @@ import axios from 'axios'
 
 import * as actionTypes from './actionTypes'
 
-const changeLoginStatus = (authen_token) => {
+const changeLogin = (authen_token) => {
     return {
-        type: actionTypes.CHANGE_LOGIN_STATUS,
+        type: actionTypes.CHANGE_LOGIN,
         login_status: true,
         authen_token: authen_token,
     }
@@ -25,7 +25,7 @@ export const login = (username, password) => {
                 const status = res.data.success
                 if (status) {
                     // 改变登录的状态
-                    dispatch(changeLoginStatus(res.data.data.authen_token))
+                    dispatch(changeLogin(res.data.data.authen_token))
                 } else {
                     console.log(res.data.msg)
                 }
@@ -33,5 +33,11 @@ export const login = (username, password) => {
             .catch((error) => {
                 console.log(error);
             })
+    }
+}
+
+export const changeLogout = () => {
+    return {
+        type: actionTypes.CHANGE_LOGOUT,
     }
 }

@@ -14,10 +14,15 @@ const reducer = (state=defaultState, action) => {
             return state.set('mouse_enter', true)
         case actionTypes.MOUSE_LEAVE:
             return state.set('mouse_enter', false)
-        case actionTypes.CHANGE_LOGIN_STATUS:
+        case actionTypes.CHANGE_LOGIN:
             return state.merge({
                 'login_status': action.login_status,
                 'authen_token': action.authen_token,
+            })
+        case actionTypes.CHANGE_LOGOUT:
+            return state.merge({
+                'login_status': false,
+                'authen_token': '',
             })
         default:
             return state

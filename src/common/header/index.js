@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import styles from './index.module.css'
 import logoImg from '../../statics/logo.png';
 import { actionCreators } from './store'
+import { actionCreators as loginActionCreators } from '../../pages/login/store'
 
 class Header extends Component {
   getSearchInfo() {
@@ -68,9 +69,11 @@ class Header extends Component {
 
             {
               this.props.login_status ? (
-                <Link className={`${styles.btn} ${styles.login_in}`} to="/">
+                <div className={`${styles.btn} ${styles.login_in}`}
+                  onClick={this.props.handleLogout}
+                >
                   退出
-                </Link>
+                </div>
               ) : (
                 <Link className={`${styles.btn} ${styles.login_in}`}
                   to="/login"
@@ -176,6 +179,9 @@ const mapDispatchToProps = (dispatch) => {
       // 翻到下一页
       let new_page = (page + 1) % totalpage
       dispatch(actionCreators.searchInfoChange(new_page))
+    },
+    handleLogout() {
+      dispatch(loginActionCreators.changeLogout())
     },
   }
 }
