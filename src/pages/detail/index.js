@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 import styles from './index.module.css'
 import Article from './components/Article'
@@ -26,4 +27,4 @@ class Detail extends Component {
     }
 }
 
-export default Detail
+export default withRouter(Detail)
