@@ -1,6 +1,6 @@
 # React 模仿简书的部分功能
 
-react + redux + react-router + ES6 + immutable + axios
+react + redux + react-redux + redux-thunk + react-router-dom + immutable + redux-immutable + axios
 
 # 说明
 
